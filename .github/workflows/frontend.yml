@@ -23,7 +23,7 @@ env:
 
 jobs:
   commitlint:
-    runs-on: [self-hosted, frontend]
+    runs-on: ubuntu-latest
     if: github.event_name == 'pull_request' &&(github.head_ref == 'feature' || startsWith(github.head_ref, 'feature/*')) && github.base_ref == 'dev'
     steps:
       - uses: actions/checkout@v4
@@ -77,7 +77,7 @@ jobs:
 
   build_frontend:
     name: Build & Push Frontend Image
-    runs-on: [self-hosted, frontend]
+    runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
     steps:
       - name: Checkout code
